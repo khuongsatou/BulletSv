@@ -6,3 +6,6 @@ python manage.py startapp polls
 
 python manage.py makemigrations
 python manage.py migrate
+
+heroku buildpacks:set heroku/python
+
