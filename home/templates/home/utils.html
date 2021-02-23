@@ -1,0 +1,29 @@
+{% load static %}
+<script type="text/javascript">
+  // form upload
+  console.log("ready 3!");
+
+  const showLoading = function () {
+    Swal.fire({
+      imageUrl: "{% static 'home/assets/demo_wait.gif' %}",
+      showConfirmButton: false,
+    });
+  };
+
+  const closeLoading = function (title="", text="", error = false, ) {
+    Swal.fire({
+      icon: error ? "error" : "success",
+      title: title,
+      html: "<i>"+ text +"<i>",
+      showConfirmButton: false,
+    });
+  };
+
+  const showImgReview = function(id_img,short_url){
+      $("#" + id_img).attr("src", short_url);
+      $("#id_url").val("");
+      $("#result").text("");
+  }
+
+  // end
+</script>

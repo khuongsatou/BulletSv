@@ -1,0 +1,32 @@
+<div class="modal fade quick-view-modal-container" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 col-md-12">
+                    <div class="row">
+                        <div class="offset-md-4 col-md-6">
+                            <form enctype="multipart/form-data" id="id_ajax_upload_form" method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="hidden" value="" id="id_img" name="id_img">
+                                <button type="submit" value="Tải lên" class="btn btn-primary">Tải Lên</button>
+                            </form>
+                            <div id="result"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--=====  End of Quick view modal  ======-->
+<!--====================  newsletter popup ====================-->

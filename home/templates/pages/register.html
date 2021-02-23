@@ -1,0 +1,81 @@
+{% extends 'master/base.html' %} {% load static %} {% block content %}
+{% load static %}
+<style>
+    body {
+        background: #f8f8f8;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 100px;
+    }
+
+
+
+
+
+
+
+</style>
+
+{% if user.is_authenticated %}
+<div class="container">
+    <p>Tài khoản của bạn không có quyền truy cập vào trang này. Để tiếp tục, vui lòng đăng xuất </p>
+</div>
+
+{% else %}
+
+
+<div class="container">
+    <div class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Create Account</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {% if form.errors %}
+            <p>Your username and password didn't match. Please try again. {{ form.errors }} </p>
+            {% endif %}
+
+
+            <form action="." method="POST">
+                {% csrf_token %}
+                <table>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        {{ form.username }}
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        {{ form.email }}
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        {{ form.password1 }}
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        {{ form.password2 }}
+                    </div> <!-- form-group// -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Create Account</button>
+                    </div> <!-- form-group// -->
+                    <p class="text-center">Have an account? <a href="/admin/">Log In</a></p>
+                </table>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+{% endif %}
+{% endblock %}

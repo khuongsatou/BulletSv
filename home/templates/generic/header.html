@@ -1,0 +1,46 @@
+{% load static %}
+<!-- Start Navbar Area -->
+<header id="header" class="headroom">
+    <div class="startp-nav">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="/"><img src="{% static 'home/assets/logo_img/logo.png' %}" height="40"
+                                                      alt="logo"></a>
+
+                <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav ml-auto">
+                        <li class="nav-item"><a href="#" class="nav-link">Hướng dẫn <i
+                                data-feather="chevron-down"></i></a>
+                        </li>
+
+
+                        <li class="nav-item"><a href="#" class="nav-link"> Tự tạo <i
+                                data-feather="chevron-down"></i></a>
+                            <ul class="dropdown_menu">
+                                <li class="nav-item"><a href="/axis/list" class="nav-link">Danh sách</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a href="#" class="nav-link">Về chúng tôi</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item active"><a href="#" class="nav-link">Welcome, {{ user.get_username }}</a>
+                            <ul class="dropdown_menu">
+                                <li class="nav-item"><a href="/admin" class="nav-link">Trang Profile</a></li>
+                                <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+                            </ul>
+                        </li>
+                        {% else %}
+                        <div class="others-option">
+                            <a href="/admin" class="btn btn-primary">Đăng nhập</a>
+                        </div>
+                        <div class="others-option">
+                            <a href="/register" class="btn btn-primary">Đăng ký</a>
+                        </div>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- End Navbar Area -->

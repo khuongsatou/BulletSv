@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TrieuDo Develop</title>
+    {% include 'generic/stylesheet.html' %}
+</head>
+<body>
+
+
+<!-- Start Preloader Area -->
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+
+<!-- End Preloader Area -->
+
+{% include 'generic/header.html' %}
+
+
+
+
+
+
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+
+<br>
+<br>
+
+<br>
+<br>
+        {% block page %}
+
+        {% endblock %}
+
+		{% include 'generic/footer.html' %}
+
+        {% include 'generic/javascript.html' %}
+
+</body>
+</html>
