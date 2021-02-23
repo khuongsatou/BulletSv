@@ -1,2 +1,5 @@
 requests
 Django
+gunicorn
+dj-database-url
+whitenoise
