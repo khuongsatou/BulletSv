@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.src.views.call_store_view import get_data_store_pagination
+import api.src.views.call_store_view as call_store_view
+import api.src.views.notify as notify
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # page store
-    path('get-data-store-pagination', get_data_store_pagination, name="get_data_store_pagination"),
+    path('get-data-store-pagination', call_store_view.get_data_store_pagination, name="get_data_store_pagination"),
+    path('notify', notify.get_notify, name="notify"),
 ]

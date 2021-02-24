@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,6 +25,8 @@
     </div>
 </div>
 
+<button type="button" onclick="AjaxCallAxis()">Click Me!</button>
+
 <form method="POST">
     {% csrf_token %}
     {% for key, value in form.errors.items %}
@@ -34,5 +37,8 @@
     <input type="hidden" name="next" value="/"/>
     <input type="submit" value="Đăng nhập"/>
 </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'home/script.js' %}"></script>
 </body>
 </html>
