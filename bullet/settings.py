@@ -12,10 +12,16 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import schedule
+import time
+from threading import Thread
+from queue import Queue
+import datetime
+import requests
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -26,8 +32,8 @@ SECRET_KEY = 'n(ws(ht$^-zd+34!o@q0(yz169nj^kv9jn!tn+ah0lo42rr-t8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000','127.0.0.1', 'stark-dawn-98740.herokuapp.com','0.0.0.0','0.0.0.0:5000','192.168.43.78','*']
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000', '127.0.0.1', 'stark-dawn-98740.herokuapp.com', '0.0.0.0',
+                 '0.0.0.0:5000', '192.168.43.78', '*']
 
 # Application definition
 
@@ -73,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bullet.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -83,7 +88,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -103,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -117,7 +120,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -130,3 +132,51 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
+def handle_notification():
+    serverToken = 'AAAAqLDMZko:APA91bGcwgG3tBNf7cLX6rHX3EoqyUrV1qW3zo_25XubeKJuE9Vb2j5FCv2r5OEB2Q_UdLYuH1FFHczrZS96l8Jv7934g0_rppeuaEjBkm41VIupYOfDZ7xJ_cvCUPfDNfF3ph4kUKPQ'
+
+
+    deviceToken = 'eQETgg_XRz6gVXuL2_j9m0:APA91bHWdWa-9_2W35R1FDdvTecOqTQ8_DjGLAb7SWusTwxFrlm1OPWNeBfJd5WC_P5NOnqLZoEQCNcvG5g3hyj0411TMc5Hhpg3l0NlxkBSMChD0NH583TTKnXWXw0Dq18tNfei5OyS'
+
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'key=' + serverToken,
+    }
+
+    body = {
+        'notification': {'title': 'Sending push form python script',
+                         'body': 'New Message'
+                         },
+        'to':
+            deviceToken,
+        'priority': 'high',
+        #   'data': dataPayLoad,
+    }
+    response = requests.post("https://fcm.googleapis.com/fcm/send", headers=headers, data=json.dumps(body))
+    print(response.status_code)
+
+    print(response.json())
+    return response.json()
+
+
+
+def job():
+    handle_notification()
+    print("I'm working...")
+
+
+def get_text_info(a,b):
+    x = datetime.datetime.now()
+    schedule.every(10).seconds.do(job)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+# Create Que
+que1 = Queue()
+
+# Lấy nội dung
+thread_text_info = Thread(target=lambda q, arg1, arg2: q.put(get_text_info(arg1, arg2)),
+                                  args=(que1, 1, 2))
+thread_text_info.start()

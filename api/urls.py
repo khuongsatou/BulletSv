@@ -20,7 +20,6 @@ import api.src.views.notify as notify
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     # page store
     path('get-data-store-pagination', call_store_view.get_data_store_pagination, name="get_data_store_pagination"),
     path('notify', notify.get_notify, name="notify"),

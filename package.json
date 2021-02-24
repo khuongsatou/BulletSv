@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "venv": "source venv/bin/activate",
+    "run": "python manage.py runserver"
+  }
+}

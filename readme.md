@@ -65,3 +65,10 @@ gunicorn bullet.wsgi
 heroku local
 
 https://help.heroku.com/GDQ74SU2/django-migrations
+
+
+https://www.youtube.com/watch?v=zF_DroDICaM
+
+
+// log.
+heroku logs -n 1500
