@@ -49,15 +49,19 @@ git commit -m "init"
 // Đưa lên heroku.
 git push heroku main
 
-
-source venv/bin/activate
-
+// Lệnh install tất cả thư viện
 pip install -r requirements.txt
 
+// Lệnh tạo venv
 python3 -m venv venv
+
+// Lên active
 source venv/bin/activate
 
-
+// Lệnh chạy server khi deloy lên heroku
 gunicorn bullet.wsgi
 
+// Kiểm tra xem có lỗi không trước khi upload
 heroku local
+
+https://help.heroku.com/GDQ74SU2/django-migrations
