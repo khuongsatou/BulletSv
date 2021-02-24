@@ -20,7 +20,7 @@ function AjaxCallAxis() {
   let futureDay = new Date(
     new Date().setMinutes(
       now.getMinutes(),
-      now.getSeconds() + 3,
+      now.getSeconds() + 15,
       now.getMilliseconds()
     )
   );
