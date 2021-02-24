@@ -162,12 +162,11 @@ def handle_notification():
 
 
 def job():
-    handle_notification()
+    # handle_notification()
     print("I'm working...")
 
 
 def get_text_info(a,b):
-    x = datetime.datetime.now()
     schedule.every(10).seconds.do(job)
     while True:
         schedule.run_pending()
