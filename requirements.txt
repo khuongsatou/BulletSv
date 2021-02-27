@@ -5,3 +5,4 @@ dj-database-url
 whitenoise
 schedule
 redis
+celery
