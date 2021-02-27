@@ -1,19 +1,19 @@
-function requestNotify() {
-  $.ajax({
-    url: "/api/notify",
-    type: "POST",
-    data: JSON.stringify({}),
-    success: function (response) {
-      console.log(response);
-    },
-    error: function (xhr, error, response) {
-      console.log(response);
-    },
-    cache: false,
-    contentType: false,
-    processData: false,
-  });
-}
+//function requestNotify() {
+//  $.ajax({
+//    url: "/api/notify",
+//    type: "POST",
+//    data: JSON.stringify({}),
+//    success: function (response) {
+//      console.log(response);
+//    },
+//    error: function (xhr, error, response) {
+//      console.log(response);
+//    },
+//    cache: false,
+//    contentType: false,
+//    processData: false,
+//  });
+//}
 
 function AjaxCallAxis() {
   var now = new Date();

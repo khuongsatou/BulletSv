@@ -1,0 +1,126 @@
+{% load static %}
+<!-- Left -->
+<div class="col-lg-5 col-md-5 bg-box-left">
+    <br>
+    <div class="row">
+        <form enctype="multipart/form-data" id="id_ajax_handle" method="POST" novalidate="">
+            {% csrf_token %}
+            <div class="row"
+                 style="overflow: scroll;white-space: nowrap;margin-bottom:16px;margin-left:16px;height:120px">
+                <!--=======  single slider product  =======-->
+                <div class="col single-slider-product-wrapper" style="height:100px;">
+                    <div class="single-slider-product">
+                        <div class="single-slider-product__image">
+                            <a id="faq_1" href="#area-handle" onclick="AjaxFormSubmit('#img_1');">
+                                <img id="img_1" src="{% static 'home/nam_duoc/090509_VPA0350 (85).jpg' %}"
+                                     class="img-fluid" alt="" style="height:80px">
+                            </a>
+                            <div class="hover-icons" style="width:16px;height:16px">
+                                <ul>
+                                    <li><a data-toggle="modal" data-target="#myModal"
+                                           data-id="img_1"
+                                           class="open-AddBookDialog"
+                                           href="javascript:void(0)"><i class="fas fa-upload"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--=======  End of single slider product  =======-->
+                <!--=======  single slider product  =======-->
+                <div class="col single-slider-product-wrapper" style="height:100px;">
+                    <div class="single-slider-product">
+                        <div class="single-slider-product__image">
+                            <a id="faq_2" href="#area-handle" onclick="AjaxFormSubmit('#img_2');">
+                                <img id="img_2" src="{% static 'home/nam_duoc/090509_VPA0350 (91).jpg' %}"
+                                     class="img-fluid" alt="" style="height:80px">
+                            </a>
+                            <div class="hover-icons" style="width:16px;height:16px">
+                                <ul>
+                                    <li><a data-toggle="modal" data-target="#myModal"
+                                           data-id="img_2"
+                                           class="open-AddBookDialog"
+                                           href="javascript:void(0)"><i class="fas fa-upload"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--=======  End of single slider product  =======-->
+
+                <!--=======  single slider product  =======-->
+                <div class="col single-slider-product-wrapper" style="height:100px;">
+                    <div class="single-slider-product">
+                        <div class="single-slider-product__image">
+                            <a id="faq_3" href="#area-handle" onclick="AjaxFormSubmit('#img_3');">
+                                <img id="img_3" src="{% static 'home/nam_duoc/090509_VPA0350 (95).jpg' %}"
+                                     class="img-fluid" alt="" style="height:80px">
+                            </a>
+                            <div class="hover-icons" style="width:16px;height:16px">
+                                <ul>
+                                    <li><a data-id="img_3" data-toggle="modal" data-target="#myModal"
+                                           class="open-AddBookDialog"
+                                           href="javascript:void(0)"><i class="fas fa-upload"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--=======  End of single slider product  =======-->
+                <!--=======  single slider product  =======-->
+                <div class="col single-slider-product-wrapper" style="height:100px;">
+                    <div class="single-slider-product">
+                        <div class="single-slider-product__image">
+                            <a id="faq_4" href="#area-handle" onclick="AjaxFormSubmit('#img_4');">
+                                <img id="img_4" src="{% static 'home/nam_duoc/090509_VPA0350 (99).jpg' %}"
+                                     class="img-fluid" alt="" style="height:80px">
+                            </a>
+                            <div class="hover-icons" style="width:16px;height:16px">
+                                <ul>
+                                    <li><a data-id="img_4" data-toggle="modal" data-target="#myModal"
+                                           class="open-AddBookDialog"
+                                           href="javascript:void(0)"><i class="fas fa-cloud-upload-alt"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--=======  End of single slider product  =======-->
+
+                <!--=======  single slider product  =======-->
+                <div class="col single-slider-product-wrapper" style="height:100px;">
+                    <div class="single-slider-product">
+                        <div class="single-slider-product__image">
+                            <a id="faq_5" href="#area-handle" onclick="AjaxFormSubmit('#img_5');">
+                                <img id="img_5" src="{% static 'home/nam_duoc/090509_VPA0350 (100).jpg' %}"
+                                     class="open-AddBookDialog"
+                                     class="img-fluid" alt="" style="height:80px">
+                            </a>
+                            <div class="hover-icons" style="width:16px;height:16px">
+                                <ul>
+                                    <li><a data-id="img_5" data-toggle="modal" data-target="#myModal"
+                                           class="open-AddBookDialog"
+                                           href="javascript:void(0) "><i class="fas fa-upload"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--=======  End of single slider product  =======-->
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="img-review zoom">
+        <img class="review" src="{% static 'home/nam_duoc/090509_VPA0350 (85).jpg' %}" alt=""
+             width="420"
+             />
+
+    </div>
+    <br>
+</div>

@@ -4,3 +4,8 @@ gunicorn
 dj-database-url
 whitenoise
 schedule
+celery
+django-kombu
+sqlalchemy
+django-celery-results
+django-celery-beat

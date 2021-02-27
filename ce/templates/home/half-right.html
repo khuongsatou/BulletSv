@@ -1,0 +1,84 @@
+{% load static %}
+
+<!-- default / right -->
+<div class="col-lg-7 col-md-7 bg-box-right" id="start">
+    <div class="col-lg-12">
+        <div class="tabs">
+            <br>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                       href="#nav-home" role="tab" aria-controls="nav-home"
+                       aria-selected="true">Bảng</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                       href="#nav-profile" role="tab" aria-controls="nav-profile"
+                       aria-selected="false">JSON</a>
+                </div>
+            </nav>
+
+            <div class="tab-content" style="height:600px;overflow: scroll !important;">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                     aria-labelledby="nav-home-tab"
+                     style="color:black;overflow: scroll !important;background-color:#fff">
+                    <table class="table col-lg-12 col-md-12 ">
+                        <tbody>
+                        <tr>
+                            <td>Ngày xuất hóa đơn:</td>
+                            <td id="date"></td>
+                        </tr>
+                        <tr>
+                            <td>Số hóa đơn:</td>
+                            <td id="shopcode"></td>
+                        </tr>
+                        <tr>
+                            <td>Đơn vị bán hàng:</td>
+                            <td id="distributor"></td>
+                        </tr>
+                        <tr>
+                            <td>Tổng thành tiền:</td>
+                            <td id="total"></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                    <table class="table col-lg-12 col-md-12">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th style="font-size:12px" scope="col">STT</th>
+                            <th style="font-size:12px" scope="col"></th>
+                            <th style="font-size:12px" scope="col">Tên</th>
+                            <th style="font-size:12px" scope="col">Hàng</th>
+                            <th style="font-size:12px" scope="col">Hóa</th>
+                            <th style="font-size:12px" scope="col"></th>
+                            <th style="font-size:12px" scope="col">ĐVT</th>
+                            <th style="font-size:12px" scope="col">SL</th>
+                            <th style="font-size:12px" scope="col">ĐG</th>
+                            <th style="font-size:12px" scope="col">TT</th>
+                            <th style="font-size:12px" scope="col">Thuế GTGT</th>
+                            <th style="font-size:12px" scope="col">Tiền GTGT</th>
+                            <th style="font-size:12px" scope="col">Tổng</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody_bottom">
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                     aria-labelledby="nav-profile-tab"
+                     style="color:black;overflow: scroll !important;background-color:#fff">
+                    <pre id="p_json"
+                    >
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <div style="width:2px;"></div>
+            <a id="export_excel" type="button" class="btn btn-success" href="/api/csv/0">Export To</a>
+
+        </div>
+        <br>
+    </div>
+</div>

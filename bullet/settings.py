@@ -39,13 +39,16 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000', '127.0.0.1', 'stark-dawn-98740.h
 
 INSTALLED_APPS = [
     'api',
-    'home',
+    # 'home',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ce',
+    'django_celery_results',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -130,8 +133,26 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+REDIS_HOST = 'localhost'
+REDIS_PORT = '6379'
+# BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 
+BROKER_URL = 'amqp://guest:guest@localhost:5672/'
+# CELERY_RESULT_BACKEND = 'django-db'
+CELERY_RESULT_BACKEND = 'django-cache'
+
+# celery setting.
+CELERY_CACHE_BACKEND = 'default'
+
+# django setting.
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 def handle_notification():
     serverToken = 'AAAAqLDMZko:APA91bGcwgG3tBNf7cLX6rHX3EoqyUrV1qW3zo_25XubeKJuE9Vb2j5FCv2r5OEB2Q_UdLYuH1FFHczrZS96l8Jv7934g0_rppeuaEjBkm41VIupYOfDZ7xJ_cvCUPfDNfF3ph4kUKPQ'
@@ -161,21 +182,21 @@ def handle_notification():
 
 
 
-def job():
-    # handle_notification()
-    print("I'm working...")
+# def job():
+#     # handle_notification()
+#     print("I'm working...")
+#
+#
+# def get_text_info(a,b):
+#     schedule.every(10).seconds.do(job)
+#     while True:
+#         schedule.run_pending()
+#         time.sleep(1)
 
-
-def get_text_info(a,b):
-    schedule.every(10).seconds.do(job)
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-# Create Que
-que1 = Queue()
-
-# Lấy nội dung
-thread_text_info = Thread(target=lambda q, arg1, arg2: q.put(get_text_info(arg1, arg2)),
-                                  args=(que1, 1, 2))
-thread_text_info.start()
+# # Create Que
+# que1 = Queue()
+#
+# # Lấy nội dung
+# thread_text_info = Thread(target=lambda q, arg1, arg2: q.put(get_text_info(arg1, arg2)),
+#                                   args=(que1, 1, 2))
+# thread_text_info.start()

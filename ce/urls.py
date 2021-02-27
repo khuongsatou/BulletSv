@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from ce import views
+import ce.views as notify
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api_test/', include('api.urls')),
-    # path('', include('home.urls')),
-    path('ce/', include('ce.urls'))
+    path('', views.Home.as_view(), name="home"),
+    path('notify', notify.get_notify, name="notify"),
 ]
+

@@ -1,6 +1,6 @@
 function requestNotify() {
   $.ajax({
-    url: "/api/notify",
+    url: "/ce/notify",
     type: "POST",
     data: JSON.stringify({}),
     success: function (response) {
@@ -15,12 +15,12 @@ function requestNotify() {
   });
 }
 
-function AjaxCallAxis() {
+function AjaxCallAxisNotify() {
   var now = new Date();
   let futureDay = new Date(
     new Date().setMinutes(
       now.getMinutes(),
-      now.getSeconds() + 15,
+      now.getSeconds() + 5,
       now.getMilliseconds()
     )
   );
