@@ -1,7 +1,5 @@
 FROM rabbitmq
 
-WORKDIR /Users/apple/Desktop/mai/BulletSv
+RUN rabbitmq-plugins enable --offline rabbitmq_management
 
-COPY . .
-
-CMD gunicorn --bind 0.0.0.0:5672 wsgi
+EXPOSE 5672 5672

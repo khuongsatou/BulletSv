@@ -102,3 +102,11 @@ docker build -t your_name_container
 
 # xóa.
 docker container rm your_name_container
+
+release: docker run -d -p 5672:5672 rabbitmq
+
+heroku container:login
+
+heroku container:push web
+
+heroku open
