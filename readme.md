@@ -110,3 +110,5 @@ heroku container:login
 heroku container:push web
 
 heroku open
+
+kill `lsof -i :5000`
