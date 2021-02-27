@@ -6,3 +6,5 @@ whitenoise
 schedule
 redis
 celery
+django-celery-results
+sqlalchemy

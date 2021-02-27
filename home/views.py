@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from .tasks import sleepy, send_email_task
 from django.http import HttpResponse
+from home.notify import handle_notification
 
 # Create your views here.
 class Home(View):
@@ -13,5 +14,8 @@ class Home(View):
 
 
 def index(request):
-    # send_email_task.delay()
+    # handle_notification()
+    sleepy.delay(12)
     return HttpResponse('<h1>EMAIL HAS BEEN SENT WITH CELERY!</h1>')
+
+

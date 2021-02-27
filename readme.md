@@ -72,3 +72,5 @@ https://www.youtube.com/watch?v=zF_DroDICaM
 
 // log.
 heroku logs -n 1500
+
+python manage.py migrate django_celery_results

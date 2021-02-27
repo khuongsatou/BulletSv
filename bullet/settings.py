@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -181,7 +182,9 @@ def get_text_info(a,b):
 # thread_text_info.start()
 
 
-CELERY_BROKER_URL = 'redis://h:p35dfc08bb5d2a659e408bc61dec2d58d0ed77ae61b5cd60e30d48b43e7ff7944@ec2-3-222-186-102.compute-1.amazonaws.com:11459'
+# CELERY_BROKER_URL = 'redis://h:p35dfc08bb5d2a659e408bc61dec2d58d0ed77ae61b5cd60e30d48b43e7ff7944@ec2-3-222-186-102.compute-1.amazonaws.com:11459'
+
+CELERY_BROKER_URL = 'amqp://localhost'
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
@@ -192,3 +195,6 @@ EMAIL_HOST_USER = 'support@prettyprinted.com'
 EMAIL_HOST_PASSWORD = 'xfjuka5246d8bvcg'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+result_backend = 'db+sqlite:///db.sqlite3'
+CELERY_RESULT_BACKEND = result_backend
