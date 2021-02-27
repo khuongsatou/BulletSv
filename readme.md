@@ -74,3 +74,31 @@ https://www.youtube.com/watch?v=zF_DroDICaM
 heroku logs -n 1500
 
 python manage.py migrate django_celery_results
+
+# Docker.
+# Liệt kê các file đang chạy
+docker ps
+docker ps -a
+docker ps -all
+
+# Lệnh chạy 1 images trong container với network publish là 5672
+# Thực tế thì là map giữa port localhost với port của container
+docker run -d -p 5672:5672 rabbitmq
+
+# Log container:
+docker logs --follow your_name_container
+
+# xem ls volume : fea865d4e0a4020e6d536412ee414561ec1718d435e6bee1226b83c4a6be7634
+docker volume ls
+
+# Dùng docker run.
+docker stop your_name_container
+
+
+# tải image: 
+docker pull ten_img
+# build một image từ Dockerfile và context: Context ở đây là một tập file được xác đinh bởi đường dẫn hoặc url cụ thể. Ta có thể sử dụng thêm tham số -t để gắn nhãn cho image.
+docker build -t your_name_container
+
+# xóa.
+docker container rm your_name_container
