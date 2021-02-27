@@ -4,3 +4,4 @@ gunicorn
 dj-database-url
 whitenoise
 schedule
+redis

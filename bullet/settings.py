@@ -173,9 +173,22 @@ def get_text_info(a,b):
         time.sleep(1)
 
 # Create Que
-que1 = Queue()
+# que1 = Queue()
+#
+# # Lấy nội dung
+# thread_text_info = Thread(target=lambda q, arg1, arg2: q.put(get_text_info(arg1, arg2)),
+#                                   args=(que1, 1, 2))
+# thread_text_info.start()
 
-# Lấy nội dung
-thread_text_info = Thread(target=lambda q, arg1, arg2: q.put(get_text_info(arg1, arg2)),
-                                  args=(que1, 1, 2))
-thread_text_info.start()
+
+CELERY_BROKER_URL = 'redis://h:p35dfc08bb5d2a659e408bc61dec2d58d0ed77ae61b5cd60e30d48b43e7ff7944@ec2-3-222-186-102.compute-1.amazonaws.com:11459'
+
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
+EMAIL_HOST = 'smtp.fastmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'support@prettyprinted.com'
+EMAIL_HOST_PASSWORD = 'xfjuka5246d8bvcg'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
