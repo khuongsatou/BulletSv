@@ -108,7 +108,18 @@ release: docker run -d -p 5672:5672 rabbitmq
 heroku container:login
 
 heroku container:push web
+heroku container:release web
 
 heroku open
 
 kill `lsof -i :5000`
+
+docker build - < Dockerfile
+
+# Tạo 1 image
+docker build -t testimage:1.0 .
+# Xem image
+docker images
+
+
+https://viblo.asia/p/docker-co-ban-build-image-share-your-image-len-dockerhub-phan-2-aWj537dQ56m

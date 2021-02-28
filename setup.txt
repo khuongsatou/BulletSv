@@ -1,0 +1,10 @@
+requests
+Django
+gunicorn
+dj-database-url
+whitenoise
+schedule
+redis
+celery
+django-celery-results
+sqlalchemy
