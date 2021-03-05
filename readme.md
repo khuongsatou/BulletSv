@@ -103,12 +103,27 @@ docker build -t your_name_container
 # xóa.
 docker container rm your_name_container
 
+# Tải rabbitmq server
+docker pull rabbitmq
+
+# Chạy rabbitmq server
 release: docker run -d -p 5672:5672 rabbitmq
+# 
+
 
 heroku container:login
 
 heroku container:push web
+heroku container:release web
 
 heroku open
 
 kill `lsof -i :5000`
+
+
+docker container rm bullet
+docker build -t khuong/bulletsv .
+docker run --name bullet -p 8000:8000 khuong/bulletsv
+
+
+

@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'n(ws(ht$^-zd+34!o@q0(yz169nj^kv9jn!tn+ah0lo42rr-t8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000', '127.0.0.1', 'stark-dawn-98740.herokuapp.com', '0.0.0.0',
                  '0.0.0.0:5000', '192.168.43.78', '*']

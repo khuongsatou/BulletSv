@@ -1,11 +1,13 @@
-FROM rabbitmq
+FROM python:latest
 
-RUN apk add --no-cache --update python3 py3-pip bash
+WORKDIR /Users/apple/Desktop/mai/BulletSv
+
 
 COPY . .
 
 RUN pip install -r requirements.txt
 
-# CMD ["python","./example03.py"]
-RUN rabbitmq-plugins enable --offline rabbitmq_management
-EXPOSE 15671 15671
+#CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+# add and run as non-root user
+
+CMD gunicorn bullet.wsgi
