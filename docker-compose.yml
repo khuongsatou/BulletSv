@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+    app:
+      image: yuh/bullet:lasted
+      restart: always
+      build: .
+      links:
+        - rabbitmq
+
+    rabbitmq:
+      image: rabbitmq:3-management-alpine
+      restart: always
+      volumes:
+        - ~/docker/rabbitmq/etc/:/etc/rabbitmq/
+        - ~/docker/rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/docker/.docker/rabbitmq/logs/:/var/log/rabbitmq/
+      environment:
+        - RABBITMQ_DEFAULT_USER: test
+        - RABBITMQ_DEFAULT_PASS: test
+        - RABBITMQ_ERLANG_COOKIE: cookiekey
+      ports:
+        - "5672:5672"
